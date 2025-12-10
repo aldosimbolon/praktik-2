@@ -1,26 +1,48 @@
 .App {
+  width: 100%;
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box; /* Penting untuk mobile padding */
+}
+
+/* Container Styles (Responsive Card) */
+.student-info, .courses, .time, .status, .product-card, .profile-details, .status-box {
+  background-color: var(--bg-card);
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
 }
 
 .student-info, .courses, .time, .status {
-  background-color: #f5f5f5;
-  padding: 15px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border-left: 4px solid #007bff;
+  border-left: 4px solid var(--accent-color);
 }
 
+/* Status Box Variants */
+.status-box.logged-in {
+  background-color: var(--success-bg);
+  color: var(--success-text);
+  border-color: var(--success-text);
+}
+
+.status-box.logged-out {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+  border-color: var(--error-text);
+}
+
+/* Alert Box */
 .alert {
-  background-color: #fff3cd;
-  border: 1px solid #ffeaa7;
+  background-color: var(--error-bg);
+  border: 1px solid var(--error-text);
   padding: 15px;
   border-radius: 5px;
-  color: #856404;
+  color: var(--error-text);
 }
 
+/* Profile Elements */
 .profile-header {
   text-align: center;
   margin-bottom: 20px;
@@ -31,10 +53,37 @@
   height: 100px;
   border-radius: 50%;
   object-fit: cover;
+  border: 3px solid var(--accent-color);
 }
 
-.profile-details {
-  background-color: #e8f5e8;
-  padding: 15px;
-  border-radius: 8px;
+/* Product Card Styling (Pindahan dari Inline Style) */
+.product-card h3 {
+  margin-top: 0;
+}
+
+.product-price {
+  color: #28a745; /* Tetap hijau di kedua mode agar kontras */
+  font-weight: bold;
+}
+
+.product-empty {
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Mobile Optimization */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 1.8em;
+  }
+  
+  .product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }

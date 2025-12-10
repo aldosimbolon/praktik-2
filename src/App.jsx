@@ -23,12 +23,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* BAGIAN 1: Latihan Basic (Rata Kiri) */}
       <LatihanBasic />
 
-      <hr style={{ margin: '40px 0' }} />
+      <hr style={{ margin: '40px 0', borderColor: 'var(--border-color)' }} />
 
-      {/* BAGIAN 2: Demo State (Rata Kiri) */}
       <section>
         <h1>Demo JSX dan Rendering</h1>
         
@@ -38,20 +36,14 @@ function App() {
 
         <UserProfile user={userData} isLoggedIn={isLoggedIn} />
 
-        <div style={{
-          marginTop: '20px',
-          padding: '15px',
-          backgroundColor: isLoggedIn ? '#d4edda' : '#f8d7da',
-          border: `1px solid ${isLoggedIn ? '#c3e6cb' : '#f5c6cb'}`,
-          borderRadius: '5px'
-        }}>
+        {/* BAGIAN INI DIUBAH: Gunakan className dinamis */}
+        <div className={`status-box ${isLoggedIn ? 'logged-in' : 'logged-out'}`}>
           Status: <strong>{isLoggedIn ? 'Berhasil login' : 'Belum login'}</strong>
         </div>
       </section>
 
-      <hr style={{ margin: '40px 0' }} />
+      <hr style={{ margin: '40px 0', borderColor: 'var(--border-color)' }} />
 
-      {/* BAGIAN 3: Latihan Mandiri (Paling Bawah & Rata Kiri) */}
       <section>
         <h1>Latihan Mandiri: Product Card</h1>
         <p>Daftar produk tersedia:</p>
